@@ -31,6 +31,8 @@ jobs:
         sudo mv kubectl /usr/local/bin/
   
     - name: Deploy to Kubernetes
-      run: kubectl apply -f .
+      run: kubectl apply -f secrets
+           kubectl apply -f db
+           kubectl apply -f api
 
       
