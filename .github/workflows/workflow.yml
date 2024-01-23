@@ -28,6 +28,6 @@ jobs:
         sudo mv kubectl /usr/local/bin/
   
     - name: Deploy to Kubernetes
-      run: kubectl apply -f deployment/
+      run: kubectl apply -f deployment/*.yaml
 
       
