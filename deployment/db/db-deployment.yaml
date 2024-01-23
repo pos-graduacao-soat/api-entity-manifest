@@ -27,7 +27,7 @@ spec:
             - secretRef:
                 name: db-api-entity-secrets
       volumes:
-        - name: mysql-data
+        - name: mongodb-data
           persistentVolumeClaim:
             claimName: pvc-db-api-entity
   replicas: 1
