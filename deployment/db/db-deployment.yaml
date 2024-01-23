@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-entity-mongo
+  labels:
+    app: api-entity-mongo
+spec:
+  template:
+    metadata:
+      name: api-entity-mongo
+      labels:
+        app: api-entity-mongo
+    spec:
+      containers:
+        - name: api-entity-mongo-container
+          image: mongo:latest
+          ports:
+            - containerPort: 27017
+          volumeMounts:
+            - name: mongodb-data
+              mountPath: /var/lib/mongodb
+          resources:
+            limits:
+              cpu: 1
+              memory: 1Gi
+          envFrom:
+            - secretRef:
+                name: db-api-entity-secrets
+      volumes:
+        - name: mysql-data
+          persistentVolumeClaim:
+            claimName: pvc-db-api-entity
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-entity-mongo
