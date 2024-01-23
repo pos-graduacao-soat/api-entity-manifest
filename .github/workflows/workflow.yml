@@ -5,8 +5,11 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build-push-image:
+  apply-k8s-config:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./deployment
     steps:
     - uses: actions/checkout@v3
 
