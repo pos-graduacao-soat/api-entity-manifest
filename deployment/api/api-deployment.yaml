@@ -13,8 +13,7 @@ spec:
     spec:
       containers:
         - name: api-entity-container
-          image: 572978752108.dkr.ecr.us-east-1.amazonaws.com/lanchonete-55/api-entity:main
-          imagePullPolicy: Always
+          image: 905418419045.dkr.ecr.us-east-1.amazonaws.com/lanchonete-55/api-entity:main
           ports:
             - containerPort: 3000
           resources:
